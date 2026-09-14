@@ -3,11 +3,8 @@ package com.fitness.userservice.Model;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.Id;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,25 +15,29 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table (name = "users")
+@Table(name = "users")
 @Data
 public class User {
+
     @jakarta.persistence.Id
-    @GeneratedValue (strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
+
     @Column(nullable = false)
     private String password;
+
     private String FirstName;
     private String LastName;
+
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER;
 
     @CreationTimestamp
     private LocalDateTime CreatedDate;
+
     @UpdateTimestamp
     private LocalDateTime UpdatedDate;
-
 }
