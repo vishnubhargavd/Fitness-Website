@@ -9,19 +9,20 @@ import lombok.Data;
 /**
  * RegisterRequest
  */
- @Data
+@Data
 public class RegisterRequest {
+
     @NotBlank(message = "Enter vaild Email")
     @Email(message = "Email cant be blank")
     private String email;
 
-    @NotBlank (message = "Enter a vaild password")
-    @Size (min = 6,message = "Enter Min 6 Chars")
+    @NotBlank(message = "Enter a vaild password")
+    @Size(min = 6, message = "Enter Min 6 Chars")
     private String password;
 
     @NotEmpty
     private String firstName;
 
-     @NotEmpty
+    @NotEmpty
     private String lastName;
 }
